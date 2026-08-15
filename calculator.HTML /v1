@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calculator V1</title>
+    <title>Calculator V2</title>
 
     <style>
         body {
@@ -17,7 +17,7 @@
             background: #333;
             padding: 20px;
             border-radius: 20px;
-            width: 280px;
+            width: 290px;
         }
 
         #display {
@@ -47,6 +47,11 @@
             background: red;
             color: white;
         }
+
+        .special {
+            background: #555;
+            color: white;
+        }
     </style>
 </head>
 
@@ -58,10 +63,10 @@
 
     <br>
 
-    <button onclick="clearDisplay()" class="clear">C</button>
+    <button onclick="clearDisplay()" class="clear">AC</button>
     <button onclick="deleteLast()">⌫</button>
-    <button onclick="add('(')">(</button>
-    <button onclick="add(')')">)</button>
+    <button onclick="squareRoot()" class="special">√</button>
+    <button onclick="add('%')" class="special">%</button>
 
     <br>
 
@@ -106,6 +111,14 @@ function clearDisplay() {
 function deleteLast() {
     let display = document.getElementById("display");
     display.value = display.value.slice(0, -1);
+}
+
+function squareRoot() {
+    let display = document.getElementById("display");
+
+    if (display.value !== "") {
+        display.value = Math.sqrt(display.value);
+    }
 }
 
 function calculate() {
